@@ -2,9 +2,21 @@
   (:require
     [taoensso.timbre :as logging]))
 
+(def sensitive-headers #{:authorization :cookie})
+
+(defn- hide-sensitive-headers [headers]
+  (reduce-kv (fn [m k v]
+               (if (contains? sensitive-headers k)
+                 (assoc m k "<hidden>")
+                 (assoc m k v)))
+             {} (js->clj headers :keywordize-keys true)))
+
 (defn- get-fields [req]
   (reduce (fn [acc key]
-            (assoc acc key (aget req (name key))))
+            (assoc acc key (let [field-value (aget req (name key))]
+                             (if (= key :headers)
+                               (hide-sensitive-headers field-value)
+                               field-value))))
           {}
           [:path :ip :protocol :method :params :hostname :httpVersion :headers :url :query]))
 

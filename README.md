@@ -5,7 +5,9 @@ It uses [timbre](https://github.com/ptaoussanis/timbre) as a logging library.
 This middleware is meant to be plugged into other district0x expressjs server modules.
 
 ## Installation
-Add `[district0x/district-server-middleware-logging "1.0.0"]` into your project.clj  
+Add <br>
+[![Clojars Project](https://img.shields.io/clojars/v/district0x/district-server-middleware-logging.svg)](https://clojars.org/district0x/district-server-middleware-logging) <br>
+into your project.clj  
 Include `[district.server.middleware.logging]` in your CLJS file
 
 ## Usage
@@ -31,5 +33,5 @@ Here's example how to use with [district-server-graphql](https://github.com/dist
     (mount/start))
 ```
 
-That's it! Not the server will log each request and request error, according to how you had set up your timbre.
+That's it! Now the server will log each request and request error, according to how you had set up your timbre.
 For easy timbre setup see [district-server-logging](https://github.com/district0x/district-server-logging). 

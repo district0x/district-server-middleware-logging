@@ -1,4 +1,4 @@
-(defproject district0x/district-server-middleware-logging "1.0.0"
+(defproject district0x/district-server-middleware-logging "1.0.1"
   :description "district0x expressjs server middleware for logging requests and request errors"
   :url "https://github.com/district0x/district-server-middleware-logging"
   :license {:name "Eclipse Public License"
